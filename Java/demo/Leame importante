@@ -1,6 +1,5 @@
 En este proyecto de Java se encuentra apenas en desarrollo no se desarrollo ninguno de los puntos mencionados 
 1. Create asynchronous method that downloads a url lista
-2. Create 2 Design Patterns (for example: Singleton,Factory,Decorator,Builder,etc).
 3. Create asynchronous API REST (getall,getid,post,put and delete)
 4. Create Unit Test
 5. Upload API Rest to a Docker image
