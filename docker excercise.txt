@@ -1,0 +1,12 @@
+1 . Run docker Continer(alpine 3.14)  
+$ docker container run alpine
+
+2.Create file (“test.txt”) in Continer
+$ docker run -it alpine /bin/sh
+  >>touch Test.txt
+    exit 
+
+3. Create image “Test”
+sudo docker commit (container_id) test
+
+4.Add Tag “myTest” to image

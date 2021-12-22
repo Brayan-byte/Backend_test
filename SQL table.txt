@@ -1,0 +1,63 @@
+CREATE SEQUENCE Country_id_counter
+  START WITH 1
+  INCREMENT BY 1
+  CACHE 100;
+
+CREATE SEQUENCE Language_Id_counter
+  START WITH 1
+  INCREMENT BY 1
+  CACHE 100;
+CREATE TABLE COUNTRIES(
+    Country_id int not null primary key ,
+    Name varchar(20) not null,
+    Capital varchar(20) not null,
+    Population INT not null,
+    LanguageId INT,
+    FOREIGN KEY(LanguageId) References LANGUAGES(LanguageId)
+);
+
+CREATE TABLE LANGUAGES(
+    LanguageId int not null primary key,
+    Name varchar(20)
+);
+
+
+--- Insert two records of each table
+INSERT INTO LANGUAGES values(Language_Id_counter.nextval ,'ESP');
+INSERT INTO COUNTRIES values(Country_id_counter.nextval, 'Mexico','CDMX',129600000,Country_id_counter.currval);
+
+INSERT INTO LANGUAGES values(Language_Id_counter.nextval ,'ENG');
+INSERT INTO COUNTRIES values(Country_id_counter.nextval, 'USA','WASHINGTON DC',3295000000,Country_id_counter.currval);
+-------------------------------------------------------------
+INSERT INTO LANGUAGES values(Language_Id_counter.nextval ,'JPN');
+INSERT INTO COUNTRIES values(Country_id_counter.nextval, 'JAPON','Tokyo',80000,Country_id_counter.currval);
+
+INSERT INTO LANGUAGES values(Language_Id_counter.nextval ,'ESP');
+INSERT INTO COUNTRIES values(Country_id_counter.nextval, 'ESPANA','Madrid',1200000,Country_id_counter.currval);
+
+INSERT INTO LANGUAGES values(Language_Id_counter.nextval ,'ENG');
+INSERT INTO COUNTRIES values(Country_id_counter.nextval, 'ENGLAND','London',24000000,Country_id_counter.currval);
+
+
+-- Update the first record with the population of 250000
+UPDATE COUNTRIES 
+SET Population = 250000
+WHERE Country_id = 1; 
+
+-- Delete countries with populations grather than 10000
+DELETE FROM COUNTRIES
+WHERE Population > 100000;
+
+--Joining 2 tables
+Select *
+FROM COUNTRIES
+INNER JOIN LANGUAGES
+ON COUNTRIES.LanguageId = LANGUAGES.LanguageId;
+
+--Group By language 
+SELECT COUNT('Number of countrys'), LANGUAGES.Name
+FROM LANGUAGES
+GROUP BY LANGUAGES.Name;
+
+select * from LANGUAGES;
+select * from COUNTRIES;

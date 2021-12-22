@@ -1,0 +1,12 @@
+git clone "repository"
+git checkout -b test
+
+//to add changes 
+git add . 
+git commit -a -m "Commit changes"
+git checkout main
+
+git merge test
+git commit -a -m "Commit changes"
+
+git push origin main
